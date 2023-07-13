@@ -1,53 +1,125 @@
-//<FORM>
-// Сніппет (HTML):
-.form {
-	&__row {
+//<INPUT>
+// Сніппет (HTML): inp
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	width: 100%;
+	outline: none;
+
+	display: flex;
+	padding: rem(20);
+	align-items: flex-start;
+	align-self: stretch;
+	border-radius: 20px;
+	background: #F1F1F1;
+	
+
+	color: $mainColor;
+	@include adaptiveValue("font-size", 18, 15,0,1440,768);
+	font-weight: 500;
+	line-height: 1.2;
+	&._form-focus {
 	}
-	&__column {
-	}
-	&__line {
-	}
-	&__input {
-	}
-	&__button {
-	}
-	&__error {
+	&._form-error {
 	}
 }
-//</FORM>
+.input[placeholder]:not([data-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+		color: rgba(0, 0, 0, 0.20);
+		@media (max-width: em(900.98)){
+			  // color: $mainColor;
+				// font-weight: 600;
+				// white-space:normal;
+				opacity: 0;
+		}
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
 
-// <BUTTONS>
-// Сніппет (HTML): btn
-// @import "button";
 
-// <INPUTS>
-// Сніппет (HTML): inp
-// @import "input";
+textarea.input {
+	resize: none;
+	min-height: rem(142);
+	@media (max-width:em(900.98)){
+		 min-height: unset; 
+	}
+}
 
-// <CHECK>
-// Сніппет (HTML): chk
-// @import "checkbox";
 
-// <RADIO>
-// Сніппет (HTML): opt
-// @import "radio";
+.form {
+	
+	// .form__item
+	&__item {
+		position: relative;
+		@include adaptiveValue("margin-bottom", 40,20,0,1440,768 );
+	}
+	// .form__label
+	&__label {
+		display: block;
+		color: $mainColor;
+		@include adaptiveValue("font-size", 22, 15,0,1440,768);
+		font-weight: 600;
+		margin-bottom: rem(15);
+		line-height: normal;
+		transition: all 0.3s ease;
+		img {
+			width: rem(22);
+			@include adaptiveValue("width", 22, 17,0,1440,768);
+			height: auto;
+		}
+		// &.label-text {
+			@media (max-width: em(900.98)){
+				  position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: rem(20);
+					pointer-events: none;
+					padding-right: rem(20);
+					._form-focus & {
+						opacity: 0;
+					}
+			}
+		// }
+		&.label-phone {
+			@media (max-width: em(900.98)){
+				  
+			}
+		}
+	}
+	// .form__input
+	&__input {
+		&.input-text {
 
-// <SELECT>
-// Сніппет (HTML): sel
-// @import "select";
-
-// <RATING>
-// Сніппет (HTML): rating
-// @import "rating";
-
-// <QUANTITY>
-// Сніппет (HTML): qa
-// @import "quantity";
-
-// <RANGE>
-// Сніппет (HTML):
-// @import "range";
-
-// <CALENDAR>
-// Сніппет (HTML):
-// @import "datepicker";
+		}
+		&.input-phone {
+			@media (max-width: em(900.98)){
+				  height: rem(68);
+			}
+		}
+	}
+	// .form__btn
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		width: 100%;
+		padding: rem(26);
+		border-radius: rem(60);
+		
+		color: #FFF;
+		text-align: center;
+		@include adaptiveValue("font-size", 26, 16, 0, 1440, 480);
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+}

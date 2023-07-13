@@ -378,14 +378,18 @@ export class FullPage {
 
 			// Клік для буллетів
 			click: this.clickBullets.bind(this),
+
 		}
 		if (isMobile.iOS()) {
 			document.addEventListener('touchmove', (e) => {
 				e.preventDefault();
 			});
 		}
+
 		this.setEvents();
 	}
+
+
 	setEvents() {
 		// Подія колеса миші
 		this.wrapper.addEventListener('wheel', this.events.wheel);
@@ -395,6 +399,15 @@ export class FullPage {
 		if (this.options.bullets && this.bulletsWrapper) {
 			this.bulletsWrapper.addEventListener('click', this.events.click);
 		}
+
+		// Клік по кнопці main__btn для переходу на другу секцію ----
+		const mainBtn = document.querySelector('.main__btn');
+		if (mainBtn) {
+			mainBtn.addEventListener("click", () => {
+				this.switchingSection(1);
+			});
+		}
+
 	}
 	removeEvents() {
 		this.wrapper.removeEventListener('wheel', this.events.wheel);

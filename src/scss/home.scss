@@ -3,10 +3,19 @@
 // ----------------------------------------
 section {
 }
+.main-title {
+  text-align: center;
+  font-size: 40px;
+  @include adaptiveValue("font-size", 40, 24,0,1920,768);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
 .btn {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   
   width: 100%;
   padding: rem(26);
@@ -18,9 +27,22 @@ section {
   font-weight: 700;
   text-transform: uppercase;
 
+  // transition: background 0.45s ease-in-out, transform 0.45s ease-in-out, box-shadow 0.1s linear;
+  transition: all .45s ease-in-out;
+
+  &_first {
+    background: linear-gradient(180deg, #487A9B 0%, #33506E 100%);
+    box-shadow: 0px 5px 10px 0px rgba(32, 160, 252, 0.30);
+  }
+
   &_second {
     background: linear-gradient(180deg, #E6E058 15.28%, #BD9120 70.39%);
     box-shadow: 5px 11px 0px 0px #33506E;
+    &:hover {
+      background: linear-gradient(180deg, #487A9B 0%, #33506E 100%), linear-gradient(180deg, #E6E058 15.28%, #BD9120 70.39%);
+      box-shadow: 5px 11px 0px 0px #FFF;
+      transform: scale(1.05);
+    }
   }
 }
 // ----------------------------------------
@@ -332,6 +354,7 @@ section {
   // .img-main__smile-icon
   &__smile-icon {
     position: absolute;
+    z-index: 1;
     bottom: 0;
     left: 0;
     height: auto;
@@ -350,6 +373,10 @@ section {
     height: auto;
     @include adaptiveValue("width", 187, 200,0,1920,768);
     @include adaptiveValue("width", 200, 100,3,768,360);
+    filter: drop-shadow(7px 7px 0px #FFF);
+    @media (max-width:$mobileSmall){
+      filter: drop-shadow(4px 4px 0px #FFF);
+    }
   }
 }
 
@@ -357,7 +384,353 @@ section {
 // == 02 MAP SECTION ===========================================
 // ----------------------------------------
 .map {
+  position: relative;
+ 
+		// .map__bg
+		&__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: -1;
+		}
+		// .map__bg-line
+		&__bg-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      &.img-line-pc {
+        @media (max-width:$mobile){
+           display: none; 
+        }
+      }
+      &.img-line-tablet {
+        display: none;
+        @media (max-width:$mobile){
+           display: block; 
+        }
+        @media (max-width: em(425.98)){
+            display: none;
+        }
+      }
+      &.img-line-mob {
+        display: none;
+        @media (max-width: em(425.98)){
+            display: block;
+        }
+      }
+		}
+		// .map__bg-img
+		&__bg-img {
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      top: 0;
+      // width: 100%;
+      height: 100%;
+      max-height: rem(1000);
+      object-fit: contain;
+     
+      &.img-bg-pc-left {
+        left: 0;
+        @media (max-width: em(1600.98)) and (min-height: em(1000.98)){
+           display: none;
+        }
+        @media (max-width: em(1366.98)){
+            display: none;
+        }
+      }
+      &.img-bg-pc-right {
+        right: 0;
+          @media (max-width: em(1600.98)) and (min-height: em(1000.98)){
+           display: none;
+        }
+        @media (max-width: em(1366.98)){
+            display: none;
+        }
+      }
+      &.img-bg-tab-left {
+        display: none;
+         @media (max-width: em(1600.98)) and (min-height: em(1000.98)){
+          left: 0;
+          display: block;
+         }
+         @media (max-width:em(1366.98)){
+          left: 0;
+          display: block;
+         }
+          @media (max-width: $mobileSmall){
+          display: none;
+          }
+      }
+      &.img-bg-tab-right {
+        display: none;
+         @media (max-width: em(1600.98)) and (min-height: em(1000.98)){
+          right: 0;
+          display: block;
+         }
+         @media (max-width:em(1366.98)){
+          right: 0;
+          display: block;
+         }
+          @media (max-width: $mobileSmall){
+          display: none;
+          }
+      }
+		}
+
+
+  // .map__container
+  &__container {
+    position: relative;
+    padding-bottom: rem(50);
+
+    @media (min-height:em(1000)){
+        height: 100%;
+    }
+    @media (max-width: em(1500.98)) and (min-height:em(850.98)){
+        height: 100%;
+    }
+    @media (max-width:$mobileSmall) and (min-height:em(600.98)) {
+        height: 100%;
+    }
+    
+     &::before {
+        content: '';
+        position: absolute;
+        bottom: rem(4);
+        left: 0;
+        width: 100%;
+        height: rem(3);
+        background-color: $accentColor;
+    }
+  }
+   // .map__content
+  &__content {
+    max-width: rem(1046);
+    margin: 0 auto;
+  }
+	// .map__title
+	&__title {
+    color: $accentColor;
+    @include adaptiveValue("padding-top", 132, 115,0,768,360);
+    @include adaptiveValue("margin-bottom", 123, 20,0,1920,1366);
+  }
+	// .map__subtitle
+	&__subtitle {
+    display: none;
+    @include adaptiveValue("margin-bottom", 53, 42,0,1366,360);
+    @media (max-width: em(1366.98)){
+      display: block;
+      text-align: center;
+      font-size: rem(16);
+      font-weight: 600;
+      text-transform: uppercase;
+      max-width: rem(523);
+      margin-left: auto;
+      margin-right: auto;
+    }
+	}
+	// .map__body
+	&__body {
+    position: relative;
+	}
+  // .map__map
+  &__map {
+    width: 100%;
+    max-width: rem(913);
+    margin: 0 auto;
+    position: relative;
+    padding: 0 rem(25);
+    @media (max-width: em(702.98)){
+        margin-bottom: rem(45);
+    }
+    @media (max-width:$mobileSmall){
+       padding: 0; 
+    }
+  }
+  // .map__map-svg
+  &__map-svg {
+  }
+	// .map__text
+	&__text {
+    position: absolute;
+    left: 0;
+    // bottom: 0;
+    @include adaptiveValue("bottom", 114,90,0,1920,768 );
+    @include adaptiveValue("bottom", 10, 0,3,702,700);
+    width: 100%;
+    max-width: rem(346);
+    @include adaptiveValue("max-width", 346, 274,0,1920,768);
+    @include adaptiveValue("max-width", 274,700,3,702,700 );
+    display: flex;
+    gap: rem(7);
+    @media (max-width: em(702.98)){
+        position: relative;
+    }
+	}
+	// .map__text-img
+	&__text-img {
+    img {
+      width: rem(29);
+      height: auto;
+    }
+	}
+	// .map__txt
+	&__txt {
+    @include adaptiveValue("font-size", 17, 14,0,1920,768);
+    font-weight: 500;
+    line-height: 1.3;
+	}
+	// .map__rotate
+	&__rotate {
+	}
 }
+
+.rotate-map {
+  display: none;
+  @media (max-width:$mobileSmall){
+    display: block; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -78%);
+    opacity: 0;
+    transition: all 0.3s ease 1s;
+    .active-section & {
+      opacity: 1;
+    }
+  }
+		// .rotate-map__body
+		&__body {
+      display: flex;
+      width: rem(260);
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 20px;
+      background: #FFF;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+		}
+		// .rotate-map__img
+		&__img {
+		}
+		// .rotate-map__txt
+		&__txt {
+      font-size: rem(14);
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.3;
+		}
+}
+.svg-image {
+  scale: 0.5;
+  pointer-events: none;
+}
+.svg-map {
+  width: 100%;
+  height: auto;
+  path {
+    fill: #B79B52;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      fill: #487A9B;
+    }
+  }
+  @media (max-width:$mobileSmall){
+     pointer-events: none; 
+  }
+  // .svg-map__name
+  &__name {
+    fill: white;
+    pointer-events: none;
+    font-weight: 600;
+    &.lutsk {
+      font-size: rem(16);
+    }
+    &.lviv {
+      font-size: rem(16);
+    }
+    &.uzhgorod {
+      font-size: rem(16);
+    }
+    &.rivne {
+      font-size: rem(15.8);
+    }
+    &.ternopil {
+      font-size: rem(10);
+    }
+    &.frankivsk {
+      font-size: rem(9.33);
+    }
+    &.chernivtsi {
+      font-size: rem(10.76);
+    }
+    &.khmelnytskyi {
+      font-size: rem(8.02);
+    }
+    &.zhytomyr {
+      font-size: rem(15.79);
+    }
+    &.vinnytsia {
+      font-size: rem(18.81);
+    }
+    &.odesa {
+      font-size: rem(15);
+    }
+    &.kyiv {
+      font-size: rem(22.36);
+    }
+    &.cherkasy {
+      font-size: rem(18.48);
+    }
+    &.kropyvnytskyi {
+      font-size: rem(15);
+    }
+    &.mykolaiv {
+      font-size: rem(14.21);
+    }
+    &.kherson {
+      font-size: rem(22.12);
+    }
+    &.simferopol {
+      font-size: rem(15);
+    }
+    &.chernihiv {
+      font-size: rem(19.81);
+    }
+    &.poltava {
+      font-size: rem(19.93);
+    }
+    &.dnipro {
+      font-size: rem(15);
+    }
+    &.zaporizhzhia {
+      font-size: rem(15);
+    }
+    &.sumy {
+      font-size: rem(15);
+    }
+    &.kharkiv {
+      font-size: rem(19.81);
+    }
+    &.donetsk {
+      font-size: rem(12);
+    }
+    &.luhansk {
+      font-size: rem(12);
+    }
+    
+
+  }
+}
+
 
 // ----------------------------------------
 // == 03 GIFT SECTION ===========================================
@@ -370,5 +743,10 @@ section {
 // == 04 RESULT SECTION ===========================================
 // ----------------------------------------
 .result {
+}
+
+
+.map {
+
 }
 

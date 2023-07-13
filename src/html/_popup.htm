@@ -1,9 +1,38 @@
 <div id="popup" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрити</button>
-			<div class="popup__text">
-				Text
+		<div class="popup__body">
+			<div class="popup__content content-about">
+				<button data-close type="button" class="content-about__close">
+					<img src="@img/common/close-light.svg" alt="close">
+				</button>
+				<div class="content-about__body">
+					<div class="content-about__head">
+						<img src="@img/common/info.png" alt="info">
+						<p class="content-about__title">Цікавий факт про Одесу</p>
+					</div>
+					<p class="content-about__content">
+						👉 Саме в Одесі бере свій початок історія футболу в Україні, також тут було зведене перше в Україні футбольне поле.
+					</p>
+				</div>
+			</div>
+			<div class="popup__content content-form">
+				<button data-close type="button" class="content-form__close">
+					<img src="@img/common/close-dark.svg" alt="close">
+				</button>
+				<form class="content-form__form form" action="files/sendmail/sendmail.php" method="POST">
+					<div class="form__item">
+						<label for="formMessage" class="form__label label-text">✍️ Введи текст свого привітання:</label>
+						<textarea name="message" id="formMessage" class="form__input input input-text" placeholder="Як же тебе не любити, Києве мій..." data-autoheight required></textarea>
+					</div>
+					<div class="form__item">
+						<label for="formPhone" class="form__label label-phone">
+							<img src="@img/common/tel.png" alt="telephone">
+							Друже, введи свій номер, щоб взяти участь у розіграші боксу
+						</label>
+						<input id="formPhone" type="tel" name="tel" autocomplete="off" placeholder="+38 (0__) ___ __ __"  class="form__input input input-phone" required>
+					</div>
+					<button type="submit" class="form__btn btn_first">Привітати місто</button>
+				</form>
 			</div>
 		</div>
 	</div>
