@@ -672,6 +672,7 @@ body::after {
   position: relative;
   overflow-x: hidden !important;
   overflow-y: auto !important;
+  padding-top: 1.25rem;
 }
 
 .main__bg {
@@ -712,7 +713,6 @@ body::after {
 
 .main__container {
   position: relative;
-  padding-top: 1.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1279,7 +1279,7 @@ body::after {
     font-size: 2.5rem;
   }
 
-  .main__container {
+  .main {
     padding-bottom: 2.875rem;
   }
 
@@ -1439,7 +1439,7 @@ body::after {
     font-size: 1.5rem;
   }
 
-  .main__container {
+  .main {
     padding-bottom: 4.375rem;
   }
 
@@ -1956,7 +1956,7 @@ body::after {
 }
 
 @media (max-width: 22.5em) {
-  .main__container {
+  .main {
     padding-bottom: 3.125rem;
   }
 
@@ -2363,13 +2363,13 @@ body::after {
 }
 
 @supports (padding-bottom: clamp( 2.875rem , 5.375rem  +  -2.0833333333vw , 4.375rem )) {
-    .main__container {
+    .main {
       padding-bottom: clamp( 2.875rem , 5.375rem  +  -2.0833333333vw , 4.375rem );
     }
 }
 
 @supports not (padding-bottom: clamp( 2.875rem , 5.375rem  +  -2.0833333333vw , 4.375rem )) {
-    .main__container {
+    .main {
       padding-bottom: calc(4.375rem + -1.5 * (100vw - 48rem) / 72);
     }
 }
@@ -2485,13 +2485,13 @@ body::after {
 
 @media (min-width: 22.5em) and (max-width: 48em) {
 @supports (padding-bottom: clamp( 3.125rem , 2.0220588235rem  +  4.9019607843vw , 4.375rem )) {
-    .main__container {
+    .main {
       padding-bottom: clamp( 3.125rem , 2.0220588235rem  +  4.9019607843vw , 4.375rem );
     }
 }
 
 @supports not (padding-bottom: clamp( 3.125rem , 2.0220588235rem  +  4.9019607843vw , 4.375rem )) {
-    .main__container {
+    .main {
       padding-bottom: calc(3.125rem + 1.25 * (100vw - 22.5rem) / 25.5);
     }
 }
