@@ -18,13 +18,16 @@ textarea {
 	align-self: stretch;
 	border-radius: 20px;
 	background: #F1F1F1;
+	border: 2px solid transparent;
 	
 
 	color: $mainColor;
 	@include adaptiveValue("font-size", 18, 15,0,1440,768);
 	font-weight: 500;
 	line-height: 1.2;
+	transition: all .3s ease;
 	&._form-focus {
+		border: 2px solid #48799A;
 	}
 	&._form-error {
 	}
@@ -34,10 +37,10 @@ textarea {
 		transition: opacity 0.3s;
 		color: rgba(0, 0, 0, 0.20);
 		@media (max-width: em(900.98)){
-			  // color: $mainColor;
-				// font-weight: 600;
-				// white-space:normal;
-				opacity: 0;
+			  color: $mainColor;
+				font-weight: 600;
+				white-space:normal;
+				// opacity: 0;
 		}
 	}
 	&:focus::placeholder {
@@ -50,7 +53,7 @@ textarea.input {
 	resize: none;
 	min-height: rem(142);
 	@media (max-width:em(900.98)){
-		 min-height: unset; 
+		 min-height: rem(68); 
 	}
 }
 
@@ -78,15 +81,16 @@ textarea.input {
 		}
 		// &.label-text {
 			@media (max-width: em(900.98)){
-				  position: absolute;
-					top: 50%;
-					transform: translateY(-50%);
-					left: rem(20);
-					pointer-events: none;
-					padding-right: rem(20);
-					._form-focus & {
-						opacity: 0;
-					}
+				display: none;
+				  // position: absolute;
+					// top: 50%;
+					// transform: translateY(-50%);
+					// left: rem(20);
+					// pointer-events: none;
+					// padding-right: rem(20);
+					// ._form-focus & {
+					// 	opacity: 0;
+					// }
 			}
 		// }
 		&.label-phone {

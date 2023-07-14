@@ -38,7 +38,7 @@ flsFunctions.addTouchClass();
 /* Модуль для роботи з меню (Бургер) */
 // flsFunctions.menuInit();
 /* Враховування плаваючої панелі на мобільних пристроях при 100vh */
-// flsFunctions.fullVHfix();
+flsFunctions.fullVHfix();
 /* Форматування чисел */
 // import './libs/wNumb.min.js';
 
@@ -124,7 +124,7 @@ flsForms.formSubmit();
 Документація плагіна: https://github.com/RobinHerbots/inputmask
 Сніппет(HTML):
 */
-// import "./files/forms/inputmask.js";
+import "./files/forms/inputmask.js";
 
 /* Модуль роботи з повзунком */
 /*

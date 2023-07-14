@@ -393,8 +393,8 @@ section {
       left: 0;
       width: 100%;
       height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden;
+      // overflow-y: auto;
       z-index: -1;
 		}
 		// .map__bg-line
@@ -489,50 +489,57 @@ section {
     position: relative;
     padding-bottom: rem(50);
 
-    @media (min-height:em(1000)){
+    @media (min-height:em(1000.98)){
         height: 100%;
     }
-    @media (max-width: em(1500.98)) and (min-height:em(850.98)){
+    @media (min-width: em(679.98)) and (max-width: em(1500.98)) and (min-height:em(850.98)){
         height: 100%;
     }
     @media (max-width:$mobileSmall) and (min-height:em(600.98)) {
         height: 100%;
     }
     
-     &::before {
-        content: '';
-        position: absolute;
-        bottom: rem(4);
-        left: 0;
-        width: 100%;
-        height: rem(3);
-        background-color: $accentColor;
-    }
+    
+ 
   }
    // .map__content
   &__content {
     max-width: rem(1046);
     margin: 0 auto;
+    @media (min-height: em(1000.98)){
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    @media (max-width:$mobileSmall) and (max-height: em(700.98)) {
+      padding-bottom: rem(100);
+    }
   }
 	// .map__title
 	&__title {
     color: $accentColor;
     @include adaptiveValue("padding-top", 132, 115,0,768,360);
-    @include adaptiveValue("margin-bottom", 123, 20,0,1920,1366);
+    // @include adaptiveValue("margin-bottom", 123, 20,0,1920,1366);
+    @include adaptiveValue("margin-bottom", 25, 20,0,1920,1366);
   }
 	// .map__subtitle
 	&__subtitle {
-    display: none;
+    // display: none;
     @include adaptiveValue("margin-bottom", 53, 42,0,1366,360);
-    @media (max-width: em(1366.98)){
-      display: block;
+    // @media (max-width: em(1366.98)){
+      // display: block;
       text-align: center;
-      font-size: rem(16);
+      // font-size: rem(16);
+      @include adaptiveValue("font-size", 24, 16,0,1920,1366);
       font-weight: 600;
       text-transform: uppercase;
-      max-width: rem(523);
+      max-width: rem(672);
       margin-left: auto;
       margin-right: auto;
+    // }
+    @media (max-width: em(1366.98)){
+        max-width: rem(525);
     }
 	}
 	// .map__body
@@ -739,6 +746,15 @@ section {
   background: radial-gradient(35.70% 72.16% at 50.00% 50.00%, #487A9B 0%, #33506E 99.73%);
 }
 
+// &::before {
+//   content: '';
+//   position: absolute;
+//   bottom: rem(4);
+//   left: 0;
+//   width: 100%;
+//   height: rem(3);
+//   background-color: $accentColor;
+// }
 // ----------------------------------------
 // == 04 RESULT SECTION ===========================================
 // ----------------------------------------
@@ -746,7 +762,5 @@ section {
 }
 
 
-.map {
 
-}
 

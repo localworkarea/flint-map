@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230713231242">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230714140219">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@
 							з Днем Незалежності та отримай Flint-бокс!</p>
 					</div>
 					<div class="main__images img-main">
-						<picture><source srcset="img/section-01.webpts.webp" type="image/webp"><img class="img-main__gift" src="img/section-01/gifts.png" alt="gift"></picture>
+						<picture><source srcset="img/section-01/gifts.webp" type="image/webp"><img class="img-main__gift" src="img/section-01/gifts.png" alt="gift"></picture>
 						<div class="img-main__pack">
 							<picture><source srcset="img/section-01/flint-01.webp" type="image/webp"><img class="img-main__pack-01" src="img/section-01/flint-01.png" alt="flint pack"></picture>
 							<picture><source srcset="img/section-01/flint-02.webp" type="image/webp"><img class="img-main__pack-02" src="img/section-01/flint-02.png" alt="flint pack"></picture>
@@ -194,7 +194,7 @@
 					<button data-close type="button" class="content-form__close">
 						<img src="img/common/close-dark.svg" alt="close">
 					</button>
-					<form class="content-form__form form" action="files/sendmail/sendmail.php" method="POST">
+					<form data-dev data-popup-message="#message-sent" class="content-form__form form" action="files/sendmail/sendmail.php" method="POST">
 						<div class="form__item">
 							<label for="formMessage" class="form__label label-text">✍️ Введи текст свого привітання:</label>
 							<textarea name="message" id="formMessage" class="form__input input input-text" placeholder="Як же тебе не любити, Києве мій..." data-autoheight required></textarea>
@@ -204,7 +204,7 @@
 								<picture><source srcset="img/common/tel.webp" type="image/webp"><img src="img/common/tel.png" alt="telephone"></picture>
 								Друже, введи свій номер, щоб взяти участь у розіграші боксу
 							</label>
-							<input id="formPhone" type="tel" name="tel" autocomplete="off" placeholder="+38 (0__) ___ __ __" class="form__input input input-phone" required>
+							<input id="formPhone" type="tel" name="tel" autocomplete="off" data-inputmask="'mask': '+38 (099) 999 99 99'" placeholder="+38 (0__) ___ __ __" class="form__input input input-phone" required>
 						</div>
 						<button type="submit" class="form__btn btn_first">Привітати місто</button>
 					</form>
@@ -213,7 +213,26 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20230713231242"></script>
+	<div id="message-sent" aria-hidden="true" class="popup">
+		<div class="popup-message__wrapper">
+			<div class="popup-message__conten popup__content">
+				<button data-close type="button" class="popup-message__close">
+					<img src="img/common/close-dark.svg" alt="close">
+				</button>
+				<div class="popup-message__text">
+					<p class="popup-message__txt-big">
+						Чудове привітання
+						<picture><source srcset="img/common/smile-02.webp" type="image/webp"><img src="img/common/smile-02.png" alt="smile"></picture>
+					</p>
+					<p class="popup-message__txt-small">А тепер слідкуй за результатами конкурсу на сайті або у соцмережах Flint</p>
+				</div>
+				<button data-close type="button" class="popup-message__ok-close">
+					ОК
+				</button>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20230714140219"></script>
 </body>
 
 </html>
