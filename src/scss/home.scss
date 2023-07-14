@@ -9,7 +9,7 @@ section {
   @include adaptiveValue("font-size", 40, 24,0,1920,768);
   font-style: normal;
   font-weight: 700;
-  line-height: 0.9;
+  line-height: normal;
   text-transform: uppercase;
 }
 .btn {
@@ -758,6 +758,285 @@ section {
 // ----------------------------------------
 .gift {
   background: radial-gradient(35.70% 72.16% at 50.00% 50.00%, #487A9B 0%, #33506E 99.73%);
+  
+}
+.gift {
+  @media (min-height: em(900.98)) {
+    display: flex;
+    align-items: center;
+  }
+  // .gift__container
+  &__container {
+    position: relative;
+    width: 100%;
+ 
+  }
+  // .gift__bg
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  // .gift__bg-img
+  &__bg-img {
+    position: absolute;
+    z-index: -1;
+    top: rem(10);
+    height: 100%;
+    max-height: rem(1000);
+    object-fit: contain;
+    pointer-events: none;
+    @media (max-width: em(600.98)){
+        display: none;
+    }
+    &.img-bg-left {
+      left: rem(20);
+    }
+    &.img-bg-right {
+      right:rem(20);
+    }
+  }
+  // .gift__title
+  &__title {
+    @include adaptiveValue("padding-top", 75, 50,0,1920,768);
+    color: $secondColor;
+    @media (max-width: em(600.98)){
+        margin-bottom: rem(30);
+    }
+  }
+	// .gift__lable
+	&__lable {
+	}
+
+  // .gift__box
+  &__box {
+    max-width: rem(1485);
+    position: relative;
+    z-index: -1;
+    bottom: rem(-5);
+    @media (max-width: em(1200.98)){
+     margin-top: rem(45);     
+    }
+    @media (max-width: em(1024.98)){
+        margin-top: rem(97);
+    }
+    @media (max-width: em(600.98)){
+        margin-left: rem(-14.5);
+        margin-right: rem(-14.5);
+        overflow: hidden;
+        margin-top: rem(30);
+        padding-bottom: rem(100);
+    }
+  }
+	// .gift__btn-body
+	&__btn-body {
+    position: absolute;
+    right: rem(120);
+    bottom: rem(100);
+    @media (max-width: em(1330.98)){
+     bottom: unset;
+     top: rem(145);   
+     right: rem(45);
+    }
+    @media (max-width:$mobile){
+       top: rem(125); 
+    }
+    @media (max-width: em(600.98)){
+      position: relative;
+      right: unset;
+      top: unset;
+    }
+	}
+  // .gift__btn
+  &__btn {
+    width: fit-content;
+    max-width: rem(380);
+    box-shadow: 5px 11px 0px 0px #FFF;
+    line-height: 1.2;
+    @include adaptiveValue("padding-top", 26,20,0,1920,768);
+    @include adaptiveValue("padding-bottom", 26,20,0,1920,768);
+    padding-left: rem(26);
+    padding-right: rem(26);
+    @include adaptiveValue("font-size", 20, 14,0,1920,768);
+    @media (max-width: em(600.98)){
+        width: 100%;
+        max-width: rem(400);
+        margin: 0 auto;
+    }
+  }
+}
+
+.lable-gift {
+  @media (max-width: em(600.98)){
+      margin-bottom: rem(30);
+     
+  }
+  // .lable-gift__item
+  &__item {
+    position: absolute;
+    border-radius: 23.011px;
+    @include adaptiveValue("border-radius", 38, 23,0,1920,768);
+    @include adaptiveValue("border-radius", 23, 20,3,768,480);
+    background: #FFF;
+    @include adaptiveValue("padding-top", 18, 11,0,1920,768);
+    @include adaptiveValue("padding-top", 11, 18,3,768,480);
+    @include adaptiveValue("padding-right", 20, 12,0,1920,768);
+    @include adaptiveValue("padding-right", 12, 20,3,768,480);
+    @include adaptiveValue("padding-left", 20, 12,0,1920,768);
+    @include adaptiveValue("padding-left", 12, 20,3,768,480);
+    @include adaptiveValue("padding-bottom", 16, 8,0,1920,768);
+    @include adaptiveValue("padding-bottom", 8, 18,3,768,480);
+    width: 100%;
+    @include adaptiveValue("max-width", 325, 196,0,1920,768);
+    @include adaptiveValue("max-width", 196,400,3,601,600 );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    @media (max-width: em(600.98)){
+        position: relative;
+        justify-content: flex-start;
+        column-gap: rem(20);
+        height: rem(90);
+        width: 100%;
+        margin: 0 auto;
+        &:not(:last-child) {
+          margin-bottom: rem(10);
+        }
+    }
+    &.item-lable-01 {
+      top: 50%;
+      left: 20%;
+      @media (max-width: em(1440.98)){
+          left: 30%;
+      }
+      @media (max-width: em(1200.98)){
+        top: 56%;  
+        left: 15%;
+      }
+      @media (max-width:$mobile){
+         top: 60%;
+         left: 10%; 
+      }
+      @media (max-width: em(700.98)){
+          left: 5%;
+          top: 63%;
+      }
+      @media (max-width: em(600.98)){
+          left: unset;
+          top: unset;
+      }
+      .lable-gift__txt {
+        max-width: rem(200);
+        @media (max-width: em(600.98)){
+            max-width: 100%;
+        }
+      }
+    }
+    &.item-lable-02 {
+      top: 34%;
+      right: 18%;
+      @media (max-width: em(1330.98)){
+        top: 45%;
+        right: 10%;
+      }
+      @media (max-width: em(992.98)){
+          top: 45%;
+          right: 10%;
+      }
+      @media (max-width: em(700.98)){
+          top: 48%;
+          right: 1%;
+      }
+      @media (max-width: em(600.98)){
+        right: unset;
+        top: unset;
+      }
+    }
+    &.item-lable-03 {
+      top: 61%;
+      left: 50%;
+      @media (max-width: em(1440.98)){
+          top: 63%;
+      }
+      @media (max-width: em(1200.98)){
+          top: 77%;
+      }
+      @media (max-width: em(700.98)){
+          top: 80%;
+      }
+      @media (max-width: em(600.98)){
+        left: unset;
+        top: unset;
+      }
+      .lable-gift__txt {
+        max-width: rem(250);
+        @media (max-width: em(600.98)){
+          max-width: 100%;
+      }
+      }
+    }
+  }
+  // .lable-gift__img
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    @include adaptiveValue("width", 38, 23,0,1440,768);
+    @media (max-width: em(600.98)){
+        position: relative;
+        left: unset;
+        transform: unset;
+    }
+  }
+  // .lable-gift__txt
+  &__txt {
+    text-align: center;
+    @include adaptiveValue("font-size", 16, 11,0,1920,768);
+    font-weight: 600;
+    line-height: 1.3;
+    @media (max-width: em(600.98)){
+        text-align: left;
+    }
+  }
+}
+
+.box-gift {
+  width: 100%;
+  height: auto;
+  position: relative;
+  @media (max-width: em(1200.98)){
+      left: -12%;
+  }
+  @media (max-width: em(600.98)){
+    width: 200%;
+    left: -72%;   
+  }
+		// .box-gift__img
+		&__img {
+      scale: 0.5;
+
+      &.img-box-01 {
+      }
+      &.img-box-02 {
+      }
+      &.img-tabl {
+      }
+      &.img-pack {
+      }
+      &.img-bag {
+      }
+      &.img-doll {
+      }
+		}
+
+
 }
 
 // &::before {

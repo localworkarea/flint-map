@@ -4050,7 +4050,11 @@
                 this.wrapper.addEventListener("touchstart", this.events.touchdown);
                 if (this.options.bullets && this.bulletsWrapper) this.bulletsWrapper.addEventListener("click", this.events.click);
                 const mainBtn = document.querySelector(".main__btn");
+                const giftBtn = document.querySelector(".gift__btn");
                 if (mainBtn) mainBtn.addEventListener("click", (() => {
+                    this.switchingSection(1);
+                }));
+                if (giftBtn) giftBtn.addEventListener("click", (() => {
                     this.switchingSection(1);
                 }));
             }

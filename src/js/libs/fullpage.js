@@ -402,12 +402,17 @@ export class FullPage {
 
 		// Клік по кнопці main__btn для переходу на другу секцію ----
 		const mainBtn = document.querySelector('.main__btn');
+		const giftBtn = document.querySelector('.gift__btn');
 		if (mainBtn) {
 			mainBtn.addEventListener("click", () => {
 				this.switchingSection(1);
 			});
 		}
-
+		if(giftBtn) {
+			giftBtn.addEventListener("click", () => {
+				this.switchingSection(1);
+			});
+		}
 	}
 	removeEvents() {
 		this.wrapper.removeEventListener('wheel', this.events.wheel);
