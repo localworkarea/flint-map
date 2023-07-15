@@ -19,7 +19,7 @@
 				<button data-close type="button" class="content-form__close">
 					<img src="@img/common/close-dark.svg" alt="close">
 				</button>
-				<form data-dev data-popup-message="#message-sent" class="content-form__form form" action="files/sendmail/sendmail.php" method="POST">
+				<form data-ajax data-popup-message="#message-sent" class="content-form__form form" action="/form/ajax.php" method="POST">
 					<div class="form__item">
 						<label for="formMessage" class="form__label label-text">✍️ Введи текст свого привітання:</label>
 						<textarea name="message" id="formMessage" class="form__input input input-text" placeholder="Як же тебе не любити, Києве мій..." data-autoheight required></textarea>
@@ -31,6 +31,7 @@
 						</label>
 						<input id="formPhone" type="tel" name="tel" autocomplete="off" data-inputmask="'mask': '+38 (099) 999 99 99'" placeholder="+38 (0__) ___ __ __"  class="form__input input input-phone" required>
 					</div>
+					<input type="hidden" name="city">
 					<button type="submit" class="form__btn btn_first">Привітати місто</button>
 				</form>
 			</div>

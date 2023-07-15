@@ -34,7 +34,7 @@ flsFunctions.isWebp();
 /* Додавання класу touch для HTML якщо браузер мобільний */
 flsFunctions.addTouchClass();
 /* Додавання loaded для HTML після повного завантаження сторінки */
-// flsFunctions.addLoadedClass();
+flsFunctions.addLoadedClass();
 /* Модуль для роботи з меню (Бургер) */
 // flsFunctions.menuInit();
 /* Враховування плаваючої панелі на мобільних пристроях при 100vh */
@@ -171,12 +171,12 @@ import "./files/forms/inputmask.js";
 // Документація по роботі у шаблоні: https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html
 // Документація плагіна: https://github.com/verlok/vanilla-lazyload
 // Сніппет(HTML):
-// import './files/scroll/lazyload.js';
+import './files/scroll/lazyload.js';
 
 // Спостерігач за об'єктами з атрибутом data-watch
 // Документація: https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html
 // Сніппет(HTML):
-// import './libs/watcher.js'
+// import './libs/watcher.js';
 
 // Модуль поекранної прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html

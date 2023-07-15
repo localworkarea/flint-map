@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 	@@include('html/_head.htm',{
 	"title":"Flint Promo Box"
 	})
@@ -12,7 +12,9 @@
 								<img class="main__bg-img bg-pc-left" src="@img/section-01/pc-left-01.svg" alt="background">
 								<img class="main__bg-img bg-pc-left-a" src="@img/section-01/pc-left-01-a.svg" alt="background">
 								<img class="main__bg-img bg-pc-right" src="@img/section-01/pc-right-01.svg" alt="background">
-								<img class="main__bg-img bg-mob" src="@img/section-01/MOB-BG.png" alt="background">
+								<img class="main__bg-img bg-mob bg-mob-top" src="@img/section-01/mob-bt-top.svg" alt="background">
+								<img class="main__bg-img bg-mob bg-mob-av" src="@img/section-01/mob-bt-av.svg" alt="background">
+								<img class="main__bg-img bg-mob bg-mob-bottom" src="@img/section-01/mob-bt-btm.svg" alt="background">
 							</div>
 							<div class="main__head">
 								<img class="main__logo" src="@img/common/logo.svg" alt="logo">
@@ -20,11 +22,11 @@
 									<span class="main__title_big">Flintкривай</span><br>
 									<span class="main__title_small">захоплення країною</span>
 								</h1>
-								<p class="main__subtitle">Привітай улюблене місто<br>`
+								<p class="main__subtitle">Привітай улюблене місто<br>
 									з Днем Незалежності та отримай Flint-бокс!</p>
 							</div>
 							<div class="main__images img-main">
-								<img class="img-main__gift" src="@img/section-01/gifts.png" alt="gift">
+								<img class="img-main__gift" src="@img/section-01/box.png" alt="gift">
 								<div class="img-main__pack">
 									<img class="img-main__pack-01" src="@img/section-01/flint-01.png" alt="flint pack">
 									<img class="img-main__pack-02" src="@img/section-01/flint-02.png" alt="flint pack">
@@ -42,18 +44,14 @@
 					</section>
 					<section data-fp-section class="map">
 						<div class="map__bg">
-							<img class="map__bg-line img-line-pc" src="@img/section-02/decor-line.svg" alt="background line">
-							<img class="map__bg-line img-line-avr" src="@img/section-02/decor-line-avr.svg" alt="background line">
-							<img class="map__bg-line img-line-tablet" src="@img/section-02/decor-line-tab.svg" alt="background line">
+							<img class="map__bg-line" src="@img/section-02/decor-line.svg" alt="background line">
 						</div>
 						<div class="map__container">
 							<div class="map__bg">
-						
-								<img class="map__bg-line img-line-mob" src="@img/section-02/decor-line-mob.svg" alt="background line">
-								<img class="map__bg-img img-bg-pc-left" src="@img/section-02/pc-left.svg" alt="background">
-								<img class="map__bg-img img-bg-pc-right" src="@img/section-02/pc-right.svg" alt="background">
-								<img class="map__bg-img img-bg-tab-left" src="@img/section-02/tablet-left.svg" alt="background">
-								<img class="map__bg-img img-bg-tab-right" src="@img/section-02/tablet-right.svg" alt="background">
+								<img class="map__bg-img img-bg-pc-left anim-left" data-src="@img/section-02/pc-left.svg" alt="background">
+								<img class="map__bg-img img-bg-pc-right anim-right" data-src="@img/section-02/pc-right.svg" alt="background">
+								<img class="map__bg-img img-bg-tab-left anim-left" data-src="@img/section-02/tablet-left.svg" alt="background">
+								<img class="map__bg-img img-bg-tab-right anim-right" data-src="@img/section-02/tablet-right.svg" alt="background">
 							</div>
 							<div class="map__content">
 								<h2 class="map__title main-title">У кожного міста України - своя душа</h2>
@@ -153,7 +151,7 @@
 									</div>
 									<div class="map__text">
 										<div class="map__text-img">
-											<img src="@img/section-02/smile.png" alt="smile">
+											<img data-src="@img/section-02/smile.png" alt="smile">
 										</div>
 										<p class="map__txt">Саме з вашими найщирішими привітаннями ми створимо справжні листівки	 та разом з блогерами відправимо їх в різні міста України</p>
 									</div>
@@ -165,22 +163,22 @@
 					<section data-fp-section class="gift">
 						<div class="gift__container">
 							<div class="gift__bg">
-								<img class="gift__bg-img img-bg-left" src="@img/section-03/left.svg" alt="background">
-								<img class="gift__bg-img img-bg-right" src="@img/section-03/right.svg" alt="background">
+								<img class="gift__bg-img img-bg-left" data-src="@img/section-03/left.svg" alt="background">
+								<img class="gift__bg-img img-bg-right" data-src="@img/section-03/right.svg" alt="background">
 							</div>
 							<h2 class="gift__title main-title">Що входить <br>
 								у подарунковий бокс:</h2>
 								<div class="gift__lable lable-gift">
 									<div class="lable-gift__item item-lable-01">
-										<img src="@img/section-03/heart.svg" alt="heart" class="lable-gift__img">
+										<img data-src="@img/section-03/heart.svg" alt="heart" class="lable-gift__img">
 										<p class="lable-gift__txt">Лімітовані пачки cухариків Flint! Здивуй друзів!</p>
 									</div>
 									<div class="lable-gift__item item-lable-02">
-										<img src="@img/section-03/heart.svg" alt="heart" class="lable-gift__img">
+										<img data-src="@img/section-03/heart.svg" alt="heart" class="lable-gift__img">
 										<p class="lable-gift__txt">Унікальний шопер, розмальований українськими художниками!</p>
 									</div>
 									<div class="lable-gift__item item-lable-03">
-										<img src="@img/section-03/heart.svg" alt="heart" class="lable-gift__img">
+										<img data-src="@img/section-03/heart.svg" alt="heart" class="lable-gift__img">
 										<p class="lable-gift__txt">Українська мотанка - традиційний оберіг для родини!</p>
 									</div>
 								</div>
@@ -201,6 +199,70 @@
 						</div>
 					</section>
 					<section data-fp-section class="result">
+						<div class="map__bg">
+							<img class="map__bg-line" data-src="@img/section-02/decor-line.svg" alt="background line">
+						</div>
+						<div class="result__container">
+							<div class="result__bg map__bg">
+								<img class="result__bg-img map__bg-img img-pc-left" data-src="@img/section-04/pcleft.svg" alt="background">
+								<img class="result__bg-img map__bg-img img-pc-right" data-src="@img/section-04/pcright.svg" alt="background">
+								<img class="result__bg-img img-tab-top" data-src="@img/section-04/tabletimg.svg" alt="background">
+								<img class="result__bg-img img-tab-bottom" data-src="@img/section-04/tabletbottom.svg" alt="background">
+							</div>
+							<img class="result__img-gift gift-img-01" data-src="@img/section-01/box.png" alt="gift box">
+							<img class="result__img-gift gift-img-02" data-src="@img/section-01/box.png" alt="gift box">
+							<div class="result__head">
+								<img src="@img/common/logo.svg" alt="logog" class="result__logo">
+								<div class="result__txt">
+									<span class="result__txt_big">Flintкривай</span><br>
+									<span class="result__txt_small">захоплення країною</span>
+								</div>
+								<h2 class="result__title main-title">Слідкуй за результатами конкурсу<br> на сайті або у соцмережах</h2>
+							</div>
+							<div class="result__body">
+								<div class="result__info info-result">
+									<div class="info-result__box">
+										<p class="info-result__txt">Очікуйте<br> на результати конкурсу:<br>
+											<span>01.08.2023</span>
+										</p>
+										<img class="info-result__img img-01" data-src="@img/section-04/colos.svg" alt="images">
+										<img class="info-result__img img-02" data-src="@img/section-04/smile.png" alt="images">
+										<img class="info-result__img img-03" data-src="@img/section-04/smile-02.png" alt="images">
+									</div>
+									<p class="info-result__txt-main">Вони будуть розміщені на сайті, а також у соцмережах Flint, тож приєднуйтесь, щоб нічого не пропустити!</p>
+									<div class="info-result__social social-icon">
+										<a href="#" class="social-icon__item">
+											<img data-src="@img/section-04/facebook.svg" alt="facebook">
+										</a>
+										<a href="#" class="social-icon__item">
+											<img data-src="@img/section-04/insta.svg" alt="instagram">
+										</a>
+										<a href="#" class="social-icon__item">
+											<img data-src="@img/section-04/tiktok.svg" alt="tiktok">
+										</a>
+									</div>
+								</div>
+								<div class="result__form form-result">
+									<div class="form-result__body">
+										<form data-ajax data-popup-message="#message-sent" class="form-result__form form" action="files/sendmail/sendmail.php" method="POST">
+											<div class="form__item">
+												<label for="formMessageSecond" class="form-result__label form__label">✍️ Але перш за все привітай місто, якщо ти ще не зробив цього:</label>
+												<textarea name="message" id="formMessageSecond" class="form-result__textarea form__input input" placeholder="Як же тебе не любити, Києве мій..." data-autoheight required></textarea>
+											</div>
+											<div class="form__item">
+												<label for="formPhoneSecond" class="form-result__label form__label">
+													<img src="@img/common/tel.png" alt="telephone">
+													Друже, введи свій номер, щоб взяти участь у розіграші боксу
+												</label>
+												<input id="formPhoneSecond" type="tel" name="tel" autocomplete="off" data-inputmask="'mask': '+38 (099) 999 99 99'" placeholder="+38 (0__) ___ __ __"  class="form-result__phone form__input input" required>
+											</div>
+											<input type="hidden" name="city">
+											<button type="submit" class="form__btn btn_first">Привітати місто</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
 					</section>
 				</main>
 		</div>

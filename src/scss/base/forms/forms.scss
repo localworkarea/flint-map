@@ -32,28 +32,29 @@ textarea {
 	&._form-error {
 	}
 }
-.input[placeholder]:not([data-placeholder-nohiden]) {
-	&::placeholder {
-		transition: opacity 0.3s;
-		color: rgba(0, 0, 0, 0.20);
-		@media (max-width: em(900.98)){
-			  color: $mainColor;
-				font-weight: 600;
-				white-space:normal;
-				// opacity: 0;
+// .input[placeholder]:not([data-placeholder-nohiden]) {
+// 	&::placeholder {
+// 		transition: opacity 0.3s;
+// 		color: rgba(0, 0, 0, 0.20);
+// 		@media (max-width: em(900.98)){
+// 			  color: $mainColor;
+// 				font-weight: 600;
+// 				white-space:normal;
+// 				// opacity: 0;
+// 		}
+// 	}
+// 	&:focus::placeholder {
+// 		opacity: 0;
+// 	}
+// }
+
+.content-form__form {
+	textarea.input {
+		resize: none;
+		min-height: rem(142);
+		@media (max-width:em(900.98)){
+			 min-height: rem(68); 
 		}
-	}
-	&:focus::placeholder {
-		opacity: 0;
-	}
-}
-
-
-textarea.input {
-	resize: none;
-	min-height: rem(142);
-	@media (max-width:em(900.98)){
-		 min-height: rem(68); 
 	}
 }
 
@@ -69,7 +70,6 @@ textarea.input {
 	&__label {
 		display: block;
 		color: $mainColor;
-		@include adaptiveValue("font-size", 22, 15,0,1440,768);
 		font-weight: 600;
 		margin-bottom: rem(15);
 		line-height: normal;
@@ -79,7 +79,8 @@ textarea.input {
 			@include adaptiveValue("width", 22, 17,0,1440,768);
 			height: auto;
 		}
-		// &.label-text {
+		&.label-text {
+			@include adaptiveValue("font-size", 22, 15,0,1440,768);
 			@media (max-width: em(900.98)){
 				display: none;
 				  // position: absolute;
@@ -92,19 +93,47 @@ textarea.input {
 					// 	opacity: 0;
 					// }
 			}
-		// }
+		}
 		&.label-phone {
+			@include adaptiveValue("font-size", 22, 15,0,1440,768);
 			@media (max-width: em(900.98)){
-				  
+				display: none;		  
 			}
 		}
 	}
 	// .form__input
 	&__input {
+	
+		
 		&.input-text {
-
+			&::placeholder {
+				transition: opacity 0.3s;
+				color: rgba(0, 0, 0, 0.20);
+				@media (max-width: em(900.98)){
+						color: $mainColor;
+						font-weight: 600;
+						white-space:normal;
+						// opacity: 0;
+				}
+			}
+			&:focus::placeholder {
+				opacity: 0;
+			}
 		}
 		&.input-phone {
+			&::placeholder {
+				transition: opacity 0.3s;
+				color: rgba(0, 0, 0, 0.20);
+				@media (max-width: em(900.98)){
+						color: $mainColor;
+						font-weight: 600;
+						white-space:normal;
+						// opacity: 0;
+				}
+			}
+			&:focus::placeholder {
+				opacity: 0;
+			}
 			@media (max-width: em(900.98)){
 				  height: rem(68);
 			}
