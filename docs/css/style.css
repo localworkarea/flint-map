@@ -1834,12 +1834,8 @@ body::after {
 }
 
 .result__txt {
-  display: block;
   text-align: center;
-  font-family: "DSRada";
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-family: "DSRada", sans-serif;
 }
 
 .result__txt span {
@@ -1853,6 +1849,7 @@ body::after {
 }
 
 .result__txt_big {
+  font-family: "DSRada", sans-serif;
   color: #487A9B;
 }
 
@@ -3490,7 +3487,7 @@ body::after {
   }
 
   .result__logo {
-    margin-bottom: 1.875rem;
+    margin-bottom: 0.625rem;
   }
 
   .result__body {
@@ -3651,7 +3648,6 @@ body::after {
     margin-right: -0.90625rem;
     overflow: hidden;
     margin-top: 1.875rem;
-    padding-bottom: 6.25rem;
   }
 
   .gift__btn-body {
@@ -3847,10 +3843,6 @@ body::after {
     opacity: 1;
     -webkit-transition-delay: 2.7s;
             transition-delay: 2.7s;
-  }
-
-  .svg-map {
-    pointer-events: none;
   }
 
   .result__img-gift.gift-img-01 {

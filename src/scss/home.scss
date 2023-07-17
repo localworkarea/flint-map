@@ -828,7 +828,7 @@
     }
   }
   @media (max-width:$mobileSmall){
-     pointer-events: none; 
+    //  pointer-events: none; 
   }
   // .svg-map__name
   &__name {
@@ -1019,7 +1019,7 @@
         margin-right: rem(-14.5);
         overflow: hidden;
         margin-top: rem(30);
-        padding-bottom: rem(100);
+        // padding-bottom: rem(30);
     }
   }
 	// .gift__btn-body
@@ -1529,17 +1529,16 @@
       transition-delay: 0.75s;
     }
     @media (max-width: $mobile){
-      margin-bottom: rem(30);
+      margin-bottom: rem(10);
     }
   }
   // .result__txt
   &__txt {
-    display: block;
     text-align: center;
-    font-family: "DSRada";
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-family: "DSRada", sans-serif;
+    // font-style: normal;
+    // font-weight: 400;
+    // line-height: normal;
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 26, 30,0,1920,768);
     }
@@ -1551,6 +1550,7 @@
     }
     // .result__txt_big
     &_big {
+      font-family: "DSRada", sans-serif;
       color: $accentColor;
       @include adaptiveValue("font-size", 47, 34,0,1920,768);
       @include adaptiveValue("font-size", 34, 28,3,768,480);
