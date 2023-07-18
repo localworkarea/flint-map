@@ -3,9 +3,9 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: DSRada;
+  font-family: DS_Rada;
   font-display: swap;
-  src: url("../fonts/DSRada.woff2") format("woff2"), url("../fonts/DSRada.woff") format("woff");
+  src: url("../fonts/DS_Rada.woff2") format("woff2"), url("../fonts/DS_Rada.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -839,7 +839,7 @@ body::after {
 
 .main__title {
   text-align: center;
-  font-family: "DSRada";
+  font-family: "DS_Rada";
   font-style: normal;
   font-weight: 400;
   line-height: 0.7;
@@ -903,20 +903,20 @@ body::after {
 
 .main__button {
   width: 100%;
-}
-
-.main__btn {
-  max-width: 22.5rem;
-  margin: 0 auto;
   opacity: 0;
   -webkit-transition: all 1.5s ease;
   transition: all 1.5s ease;
 }
 
-.loaded .main__btn {
+.loaded .main__button {
   -webkit-transition-delay: 2.2s;
           transition-delay: 2.2s;
   opacity: 1;
+}
+
+.main__btn {
+  max-width: 22.5rem;
+  margin: 0 auto;
 }
 
 .img-main {
@@ -1835,7 +1835,7 @@ body::after {
 
 .result__txt {
   text-align: center;
-  font-family: "DSRada", sans-serif;
+  font-family: "DS_Rada", sans-serif;
 }
 
 .result__txt span {
@@ -1849,7 +1849,7 @@ body::after {
 }
 
 .result__txt_big {
-  font-family: "DSRada", sans-serif;
+  font-family: "DS_Rada", sans-serif;
   color: #487A9B;
 }
 
