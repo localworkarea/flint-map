@@ -270,4 +270,21 @@ body::after {
 			width: rem(103);
 		}
 	}
+	// .popup-message__social
+	&__social {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: rem(35);
+		.social-icon__item {
+			opacity: 1;
+			transform: unset;
+			@include adaptiveValue("width", 82, 65,3,768,480);
+
+			@include adaptiveValue("height", 82, 65,3,768,480);
+			img {
+
+			}
+		}
+	}
 }

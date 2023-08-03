@@ -4592,54 +4592,58 @@
         }), 0);
         window.addEventListener("DOMContentLoaded", (function() {
             var textarea = document.getElementById("formMessage");
-            function updatePlaceholder() {
-                if (window.innerWidth < 901) textarea.setAttribute("placeholder", "✍️ Введи текст свого привітання"); else textarea.setAttribute("placeholder", "Як же тебе не любити, Києве мій...");
+            if (textarea) {
+                function updatePlaceholder() {
+                    if (window.innerWidth < 901) textarea.setAttribute("placeholder", "✍️ Введи текст свого привітання"); else textarea.setAttribute("placeholder", "Як же тебе не любити, Києве мій...");
+                }
+                window.addEventListener("resize", updatePlaceholder);
+                updatePlaceholder();
             }
-            window.addEventListener("resize", updatePlaceholder);
-            updatePlaceholder();
         }));
         var script_button = document.querySelector(".content-about__close");
-        var popupBody = document.querySelector(".popup__body");
-        document.querySelectorAll(".popup__content");
-        var formCloseButton = document.querySelector(".content-form__close");
-        var script_textarea = document.querySelector(".input-text");
-        function addDeleteInfoClass() {
-            popupBody.classList.add("_delete-info");
-        }
-        function removeDeleteInfoClass() {
-            popupBody.classList.remove("_delete-info");
-        }
-        function removeDataClose() {
-            script_button.removeAttribute("data-close");
-        }
-        function addDataClose() {
-            script_button.setAttribute("data-close", "");
-        }
-        function isDescendant(parent, child) {
-            var node = child.parentNode;
-            while (node != null) {
-                if (node === parent) return true;
-                node = node.parentNode;
+        if (script_button) {
+            var popupBody = document.querySelector(".popup__body");
+            document.querySelectorAll(".popup__content");
+            var formCloseButton = document.querySelector(".content-form__close");
+            var script_textarea = document.querySelector(".input-text");
+            function addDeleteInfoClass() {
+                popupBody.classList.add("_delete-info");
             }
-            return false;
-        }
-        function handleClickOutside(event) {
-            if (!script_button.contains(event.target) && !isDescendant(popupBody, event.target) && !isDescendant(formCloseButton, event.target) && event.target !== script_textarea) removeDeleteInfoClass();
-        }
-        function checkScreenWidth() {
-            if (window.innerWidth < 900) {
-                script_button.addEventListener("click", addDeleteInfoClass);
-                removeDataClose();
-            } else {
-                script_button.removeEventListener("click", addDeleteInfoClass);
+            function removeDeleteInfoClass() {
                 popupBody.classList.remove("_delete-info");
-                addDataClose();
             }
+            function removeDataClose() {
+                script_button.removeAttribute("data-close");
+            }
+            function addDataClose() {
+                script_button.setAttribute("data-close", "");
+            }
+            function isDescendant(parent, child) {
+                var node = child.parentNode;
+                while (node != null) {
+                    if (node === parent) return true;
+                    node = node.parentNode;
+                }
+                return false;
+            }
+            function handleClickOutside(event) {
+                if (!script_button.contains(event.target) && !isDescendant(popupBody, event.target) && !isDescendant(formCloseButton, event.target) && event.target !== script_textarea) removeDeleteInfoClass();
+            }
+            function checkScreenWidth() {
+                if (window.innerWidth < 900) {
+                    script_button.addEventListener("click", addDeleteInfoClass);
+                    removeDataClose();
+                } else {
+                    script_button.removeEventListener("click", addDeleteInfoClass);
+                    popupBody.classList.remove("_delete-info");
+                    addDataClose();
+                }
+            }
+            window.addEventListener("resize", checkScreenWidth);
+            document.addEventListener("click", handleClickOutside);
+            script_textarea.addEventListener("click", addDeleteInfoClass);
+            checkScreenWidth();
         }
-        window.addEventListener("resize", checkScreenWidth);
-        document.addEventListener("click", handleClickOutside);
-        script_textarea.addEventListener("click", addDeleteInfoClass);
-        checkScreenWidth();
         var CityInfo = {
             kyiv: {
                 name: "Київ",
@@ -4722,8 +4726,8 @@
                 desc: "👉 Здається, миколаївці люблять крайнощі — після тривалого часу в морі гуляють найдовшою пішохідною вулицею… або вона для тих, хто любить довго теревенити під сухарики Flint."
             },
             simferopol: {
-                name: "Севастополь",
-                desc: "👉 У Севастополі звели першу на планеті вітрову електростанцію, приємно ж бути першими?"
+                name: "Сімферополь",
+                desc: "👉 Якщо на планеті й існує час на похрумтіти Flint та подумати за життя — то найдовший тролейбусний маршрут на планеті між Ялтою та  Сімферополем створений якраз для цього! 86 км — ти і Flint!"
             },
             khmelnytskyi: {
                 name: "Хмельницький",
@@ -4748,7 +4752,7 @@
             document.querySelector("#popup .content-about__content").innerHTML = CityInfo[CityID].desc;
             document.querySelector("#popup input[name='city']").value = CityID;
         }));
-        window["FLS"] = true;
+        window["FLS"] = false;
         isWebp();
         addTouchClass();
         addLoadedClass();

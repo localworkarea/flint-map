@@ -26,98 +26,99 @@ import { flsModules } from "./modules.js";
 // Менять значение placeholder в зависимости от ширины экрана
 window.addEventListener('DOMContentLoaded', function() {
   var textarea = document.getElementById('formMessage');
-  
-  function updatePlaceholder() {
-    if (window.innerWidth < 901) {
-      textarea.setAttribute('placeholder', '✍️ Введи текст свого привітання');
-    } else {
-      textarea.setAttribute('placeholder', 'Як же тебе не любити, Києве мій...');
+  if(textarea) {
+    function updatePlaceholder() {
+      if (window.innerWidth < 901) {
+        textarea.setAttribute('placeholder', '✍️ Введи текст свого привітання');
+      } else {
+        textarea.setAttribute('placeholder', 'Як же тебе не любити, Києве мій...');
+      }
     }
+
+    // Вызываем функцию обновления при загрузке страницы и при изменении размера окна
+    window.addEventListener('resize', updatePlaceholder);
+    updatePlaceholder(); // Вызываем функцию для начальной установки значения
   }
-  
-  // Вызываем функцию обновления при загрузке страницы и при изменении размера окна
-  window.addEventListener('resize', updatePlaceholder);
-  updatePlaceholder(); // Вызываем функцию для начальной установки значения
-  
 });
 
 
 // Получаем ссылки на элементы
 var button = document.querySelector('.content-about__close');
-var popupBody = document.querySelector('.popup__body');
-var popupContent = document.querySelectorAll('.popup__content');
-var formCloseButton = document.querySelector('.content-form__close');
-var textarea = document.querySelector('.input-text');
+if (button) {
+  var popupBody = document.querySelector('.popup__body');
+  var popupContent = document.querySelectorAll('.popup__content');
+  var formCloseButton = document.querySelector('.content-form__close');
+  var textarea = document.querySelector('.input-text');
 
-// Функция для добавления класса _delete-info
-function addDeleteInfoClass() {
-  popupBody.classList.add('_delete-info');
-}
-
-// Функция для удаления класса _delete-info
-function removeDeleteInfoClass() {
-  popupBody.classList.remove('_delete-info');
-}
-
-// Функция для удаления атрибута data-close
-function removeDataClose() {
-  button.removeAttribute('data-close');
-}
-
-// Функция для добавления атрибута data-close
-function addDataClose() {
-  button.setAttribute('data-close', '');
-}
-
-// Функция для проверки, является ли элемент предком указанного элемента
-function isDescendant(parent, child) {
-  var node = child.parentNode;
-  while (node != null) {
-    if (node === parent) {
-      return true;
-    }
-    node = node.parentNode;
+  // Функция для добавления класса _delete-info
+  function addDeleteInfoClass() {
+    popupBody.classList.add('_delete-info');
   }
-  return false;
-}
 
-// Функция для проверки клика вне элементов
-function handleClickOutside(event) {
-  if (
-    !button.contains(event.target) &&
-    !isDescendant(popupBody, event.target) &&
-    !isDescendant(formCloseButton, event.target) &&
-    event.target !== textarea
-  ) {
-    removeDeleteInfoClass();
-  }
-}
-
-// Функция для проверки размера экрана и обновления атрибута
-function checkScreenWidth() {
-  if (window.innerWidth < 900) {
-    button.addEventListener('click', addDeleteInfoClass);
-    removeDataClose();
-  } else {
-    button.removeEventListener('click', addDeleteInfoClass);
+  // Функция для удаления класса _delete-info
+  function removeDeleteInfoClass() {
     popupBody.classList.remove('_delete-info');
-    addDataClose();
   }
+
+  // Функция для удаления атрибута data-close
+  function removeDataClose() {
+    button.removeAttribute('data-close');
+  }
+
+  // Функция для добавления атрибута data-close
+  function addDataClose() {
+    button.setAttribute('data-close', '');
+  }
+
+  // Функция для проверки, является ли элемент предком указанного элемента
+  function isDescendant(parent, child) {
+    var node = child.parentNode;
+    while (node != null) {
+      if (node === parent) {
+        return true;
+      }
+      node = node.parentNode;
+    }
+    return false;
+  }
+
+  // Функция для проверки клика вне элементов
+  function handleClickOutside(event) {
+    if (
+      !button.contains(event.target) &&
+      !isDescendant(popupBody, event.target) &&
+      !isDescendant(formCloseButton, event.target) &&
+      event.target !== textarea
+    ) {
+      removeDeleteInfoClass();
+    }
+  }
+
+  // Функция для проверки размера экрана и обновления атрибута
+  function checkScreenWidth() {
+    if (window.innerWidth < 900) {
+      button.addEventListener('click', addDeleteInfoClass);
+      removeDataClose();
+    } else {
+      button.removeEventListener('click', addDeleteInfoClass);
+      popupBody.classList.remove('_delete-info');
+      addDataClose();
+    }
+  }
+
+  // Привязываем обработчик события к изменению размера окна
+  window.addEventListener('resize', checkScreenWidth);
+
+  // Привязываем обработчик события клика для проверки клика вне элементов
+  document.addEventListener('click', handleClickOutside);
+
+  // Привязываем обработчик события клика на textarea для добавления класса _delete-info
+  textarea.addEventListener('click', addDeleteInfoClass);
+
+  // Вызываем функцию проверки размера экрана при загрузке страницы
+  checkScreenWidth();
+
 }
-
-// Привязываем обработчик события к изменению размера окна
-window.addEventListener('resize', checkScreenWidth);
-
-// Привязываем обработчик события клика для проверки клика вне элементов
-document.addEventListener('click', handleClickOutside);
-
-// Привязываем обработчик события клика на textarea для добавления класса _delete-info
-textarea.addEventListener('click', addDeleteInfoClass);
-
-// Вызываем функцию проверки размера экрана при загрузке страницы
-checkScreenWidth();
-
-
 
 
 
@@ -142,7 +143,7 @@ var CityInfo = {
 	'luhansk': { name: 'Луганськ', desc: '👉 Щоби побачити єдинорога треба вирушати в Луганськ, де є унікальний експонат: гармата, названа «кріпаком єдинорогом», яку вилили на Луганському заводі. Дата її виготовлення — 1814 рік. Ця гармата — найстаріша з гаубиць, що стоять пам’ятниками в області.'},
 	'lutsk': { name: 'Луцьк', desc: '👉 Лучани вже багато років поспіль намагаються розкопати одне підземелля в пошуках скарбів. Майже як ти намагаєшся визначити, який смак Flint смачніший… здається і те, й інше неможливе!'},
 	'mykolaiv': { name: 'Миколаїв', desc: '👉 Здається, миколаївці люблять крайнощі — після тривалого часу в морі гуляють найдовшою пішохідною вулицею… або вона для тих, хто любить довго теревенити під сухарики Flint.'},
-	'simferopol': { name: 'Севастополь', desc: '👉 У Севастополі звели першу на планеті вітрову електростанцію, приємно ж бути першими?'},
+	'simferopol': { name: 'Сімферополь', desc: '👉 Якщо на планеті й існує час на похрумтіти Flint та подумати за життя — то найдовший тролейбусний маршрут на планеті між Ялтою та  Сімферополем створений якраз для цього! 86 км — ти і Flint!'},
 	'khmelnytskyi': { name: 'Хмельницький', desc: '👉 Справжнім отаманом не народжуються — ним стають! І ти зможеш! Flint і дух Богдана Хмельницького підтримають твій козацький дух!'},
 	'chernihiv': { name: 'Чернігів', desc: '👉 Чернігів настільки містичний і крутий, що має талісманом Семаргла — звіра з головою собаки і пташиними крилами. Справжнє місце для заряду енергією, особливо, якщо під час візиту їсти Flint)'},
 	'chernivtsi': { name: 'Чернівці', desc: '👉 Не любиш прокидатися під нудний будильник, бо вчора весь вечір хрумтів сухариками під відеоігри? У Чернівцях тебе розбудить справжній трубач «Марічкою».'},
